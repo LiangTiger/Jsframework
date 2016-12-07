@@ -22,3 +22,13 @@ function $A(iterable){
         results[length]=iterable[length];
         return results;
 }
+//mootools//
+function $A(iterable){
+    if(iterable.item){
+        var l=iterable.length,array=new Array(l);
+        while(l=l-1){
+            array[l]=iterable[l];
+        }
+        return Array.prototype.slice.call(iterable);
+    }
+}
