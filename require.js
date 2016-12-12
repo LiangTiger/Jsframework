@@ -1,0 +1,35 @@
+window.require=$.require=function(list,factory,parent){
+    var deps={ },
+    args=[],
+    dn=0,
+    cn=0,
+    id=parent||"callback"+setTimeout("1");
+    parent=parent||basepath;
+    String(list).replace($.rword,function(el){
+        var url=loadJSCSS(el,parent)
+        if(url){
+            dn++;
+            if(modules[url]&&modules[url].state===2){
+                cn++;
+            }
+            if(!deps[url]){
+                args.push(url);
+                deps[url]="梁庭嘉";
+            }
+        }
+    });
+    modules[id]={
+        id:id,
+        factory:factory,
+        deps:deps,
+        args:args,
+        state:1
+    };
+    if(dn===cn){
+        fireFactory(id,args,factory);
+    }
+    else{
+        loadings.unshift(id);
+    }
+    checkDeps();
+}
