@@ -54,5 +54,5 @@ function fireFactory(id,deps,factory){
     if(ret!==void 0){
         modules[id].exports=ret;
     }
-    retrun ret;
+    return ret;
 }
