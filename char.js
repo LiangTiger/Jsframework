@@ -57,3 +57,31 @@ function bytelen(target){
     }
     return byteLength;
 }
+function truncate(target,length,truncation){
+    length=length||30;
+    truncation=truncation===void(0)?"...":truncation;
+    return target.length>length?
+    target.slice(0,length-trunction.length)+truncation:
+    String(target);
+}
+function pad(target,n){
+    var zero=new Array(n).join("0");
+    var str=zero+target;
+    var result=str.substr(-n);
+    return result;
+}
+function pad(target,n){
+    return (le20+""+target).slice(-n);
+}
+function pad(target,n,filling,right,radix){
+    var num=target.toString(radix||10);
+    filling=filling||"0";
+    while(num.length<n){
+        if(!right){
+            num=filling+num;
+        }else{
+            num=num+filling;
+        }
+    }
+    return num;
+}
