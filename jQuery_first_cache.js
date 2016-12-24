@@ -60,3 +60,11 @@ jQuery.extend({
         fn.call(elem)
     }
 })
+noData:{
+    "embed":true,
+    "object":true,
+    "applet":true
+},
+if(elem.nodeName && jQuery.noData[elem.nodeName.toLowerCase()]){
+    return;
+}
